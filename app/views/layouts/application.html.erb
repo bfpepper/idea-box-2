@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>NewIdeaBox</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>A Place For Your Ideas</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <div>
+    <% if current_user %>
+    <%= link_to "Logout", logout_path, method: :delete %>
+    <% else %>
+    <%= link_to "Login", login_path %>
+    <% end %>
+  </div>
+  <%= yield %>
+</body>
 </html>
