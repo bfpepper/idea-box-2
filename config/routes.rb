@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
 
   namespace :admin do
-    resources :categories
+    resources :categories, only: [:create, :destroy, :index, :new]
   end
+
+  resources :categories, only: [:show]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

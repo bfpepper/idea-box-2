@@ -1,0 +1,2 @@
+class IdeasImages < ApplicationRecord
+end
