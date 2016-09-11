@@ -8,9 +8,13 @@ class SessionsController < ApplicationController
     @user = User.find_by(username:params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to @user
+      if current_admin?
+        redirect_to admin_categories_path
+      else
+        redirect_to @user
+      end
     else
-      render :login
+      render :new
     end
   end
 
