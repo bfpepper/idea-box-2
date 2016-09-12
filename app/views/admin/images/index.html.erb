@@ -1,0 +1,8 @@
+<h1>Admin Images</h1>
+
+<% @images.each do |image| %>
+<%= image.image_url %>
+<% end %>
+
+
+<%= link_to "Upload new image", new_admin_new_path %>
